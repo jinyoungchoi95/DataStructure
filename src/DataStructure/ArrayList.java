@@ -138,6 +138,7 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public void add(int index, E element) {
+        rangeCheckForAdd(index);
         resizeCapacity(size + 1);
         fastAdd(index);
         elementData[index] = element;
@@ -183,23 +184,30 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public boolean remove(Object o) {
-        if (o == null) {
-            for (int i = 0; i < size; i++) {
-                if (elementData[i] == null) {
-                    fastRemove(i);
-                    return true;
-                }
-            }
-        }
-        else {
-            for (int i = 0; i < size; i++) {
-                if (o.equals(elementData[i])) {
-                    fastRemove(i);
-                    return true;
-                }
-            }
+        int index = indexOf(o);
+        if(index>-1){
+            fastRemove(index);
+            return true;
         }
         return false;
+
+//        if (o == null) {
+//            for (int i = 0; i < size; i++) {
+//                if (elementData[i] == null) {
+//                    fastRemove(i);
+//                    return true;
+//                }
+//            }
+//        }
+//        else {
+//            for (int i = 0; i < size; i++) {
+//                if (o.equals(elementData[i])) {
+//                    fastRemove(i);
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
     }
 
     /**
@@ -316,6 +324,12 @@ public class ArrayList<E> implements List<E> {
      */
     private void rangeCheck(int index) {
         if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
+        }
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
     }
