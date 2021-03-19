@@ -71,16 +71,7 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public boolean contains(Object o) {
-        if (o == null) {
-            for (int i = 0; i < size; i++) {
-                if (elementData[i] == null) return true;
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (o.equals(elementData[i])) return true;
-            }
-        }
-        return false;
+        return (indexOf(o)>=0)? true : false;
     }
 
     /**
@@ -90,15 +81,40 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public Object[] toArray() {
-        return copy();
+        return copy(size);
     }
 
-    private Object[] copy() {
-        Object[] copy = new Object[size];
-        for (int i = 0; i < size; i++) {
+    /**
+     * 리스트를 기존의 배열에 맞게 반환합니다.
+     *
+     * @param a 리스트의 값을 복사해 넣을 배열
+     * @return 기존의 배열 내부에 리스트의 값들을 반환, 리스트의 크기가 배열보다 큰 경우 리스트를 그대로 반환, 작을 경우 리스트의 요소를 기존 배열에 대입, 배열[size] 값에 구분을 하기 위해 null 값 대입
+     */
+    @Override
+    public <T> T[] toArray(T[] a) {
+        if(a.length < size) {
+            return (T[]) copy(size);
+        }
+        a = partCopy(a);
+        if (a.length > size){
+            a[size] = null;
+        }
+        return a;
+    }
+
+    private Object[] copy(int len) {
+        Object[] copy = new Object[len];
+        for (int i = 0; i < len; i++) {
             copy[i] = elementData[i];
         }
         return copy;
+    }
+
+    private <T> T[] partCopy(T[] a) {
+        for(int i=0; i<size; i++){
+            a[i] = (T) elementData[i];
+        }
+        return a;
     }
 
     /**
@@ -174,6 +190,8 @@ public class ArrayList<E> implements List<E> {
                     return true;
                 }
             }
+        }
+        else {
             for (int i = 0; i < size; i++) {
                 if (o.equals(elementData[i])) {
                     fastRemove(i);
