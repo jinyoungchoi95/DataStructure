@@ -31,6 +31,14 @@ public interface List<E> {
     Object[] toArray();
 
     /**
+     * 생성되어 있는 배열에 리스트의 값을 반환합니다.
+     *
+     * @param a 리스트의 값을 복사해 넣을 배열
+     * @return 배열에 리스트의 값을 반환합니다.
+     */
+    <T> T[] toArray(T[] a);
+
+    /**
      * 리스트에 특정 요소를 추가합니다.
      *
      * @param e 리스트에 추가할 특정 요소
