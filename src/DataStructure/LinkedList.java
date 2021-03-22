@@ -110,7 +110,7 @@ public class LinkedList<E> implements List<E> {
      * 리스트에 특정 요소를 추가합니다.
      *
      * @param e 리스트에 추가할 특정 요소
-     * @return 리스트에 중복을 허용하지 않는 경우, 리스트에 중복된 요소가 있는 경우
+     * @return 리스트에 중복을 허용하지 않는 경, 리스트에 중복된 요소가 있는 경우
      */
     @Override
     public boolean add(E e) {
@@ -118,14 +118,28 @@ public class LinkedList<E> implements List<E> {
         return true;
     }
 
+    /**
+     * 리스트의 가장 처음에 특정요소를 추가합니다.
+     * @param e 리스트에 추가할 특정 요소
+     */
     public void addFirst(E e) {
         linkFirst(e);
     }
 
+    /**
+     * 리스트의 가장 마지막에 특정요소를 추가합니다.
+     *
+     * @param e 리스트에 추가할 특정 요소
+     */
     public void addLast(E e) {
         linkLast(e);
     }
 
+    /**
+     * 리스트의 특정 위치에 특정 요소를 추가합니다.
+     * @param index 리스트에 특정 요소를 추가할 특정 위치
+     * @param element 리스트에 추가할 특정 요소
+     */
     @Override
     public void add(int index, E element) {
         rangeCheckForAdd(index);
@@ -199,6 +213,11 @@ public class LinkedList<E> implements List<E> {
         return false;
     }
 
+    /**
+     * 리스트의 특정 위치에 있는 특정 요소를 제거합니다.
+     * @param index 리스트에서 제거할 특정 요소가 있는 위치
+     * @return 삭제된 요소의 item 값을 반환
+     */
     @Override
     public E remove(int index) {
         rangeCheck(index);
@@ -206,6 +225,10 @@ public class LinkedList<E> implements List<E> {
         return unlink(node(index));
     }
 
+    /**
+     * 리스트의 가장 처음 위치에 있는 요소를 제거합니다.
+     * @return 제거한 요소의 item 값을 반환
+     */
     public E removeFirst() {
         if (first == null) {
             throw new NoSuchElementException();
@@ -213,6 +236,10 @@ public class LinkedList<E> implements List<E> {
         return unlinkFirst();
     }
 
+    /**
+     * 리스트의 가장 마지막 위치에 있는 요소를 제거합니다.
+     * @return 제거한 요소의 item 값을 반환
+     */
     public E removeLast() {
         if (last == null) {
             throw new NoSuchElementException();
@@ -244,25 +271,6 @@ public class LinkedList<E> implements List<E> {
         return item;
     }
 
-//    private E unlinkFirst(Node<E> x) {
-//        final E item = x.item;
-//        final Node<E> next = x.next;
-//
-//        x.item = null;
-//        x.next = null;
-//
-//        first = next;
-//        if(first == null){
-//            last = null;
-//        }
-//        else{
-//            first.prev = null;
-//        }
-//        size--;
-//
-//        return item;
-//    }
-
     private E unlinkFirst() {
         final E item = first.item;
         final Node<E> next = first.next;
@@ -291,6 +299,9 @@ public class LinkedList<E> implements List<E> {
         return item;
     }
 
+    /**
+     * 리스트의 모든 요소를 지우고 size 변수를 0으로 초기화합니다.
+     */
     @Override
     public void clear() {
         for (Node<E> x = first; x != null; ) {
@@ -374,7 +385,7 @@ public class LinkedList<E> implements List<E> {
                 if (o.equals(x.item)) return index;
             }
         }
-        return 0;
+        return -1;
     }
 
     /**
