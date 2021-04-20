@@ -415,6 +415,44 @@ public class LinkedList<E> implements List<E>, Deque<E> {
         return node == null ? null : unlinkFirst();
     }
 
+
+    @Override
+    public boolean offerFirst(E e) {
+        addFirst(e);
+        return true;
+    }
+
+    @Override
+    public boolean offerLast(E e) {
+        addLast(e);
+        return true;
+    }
+
+    @Override
+    public E pollFirst() {
+        Node<E> node = first;
+        return node == null ? null : unlinkFirst();
+    }
+
+    @Override
+    public E pollLast() {
+        Node<E> node = last;
+        return node == null ? null : unlinkLast();
+    }
+
+    @Override
+    public E peekFirst() {
+        Node<E> node = first;
+        return node == null ? null : node.item;
+    }
+
+    @Override
+    public E peekLast() {
+        Node<E> node = last;
+        return node == null ? null : node.item;
+    }
+
+
     /**
      * 특정 위치에 존재하는 node를 반환합니다.
      * 특정 위치가 size의 1/2보다 작을 경우 List의 처음부터, 클 경우 List의 마지막부터 검사합니다.
