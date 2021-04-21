@@ -1,7 +1,8 @@
-package DataStructure;
+package DataStructure.Queue;
 
 public interface Deque<E> extends Queue<E> {
 
+    // *** Deque method ***
     /**
      * 큐의 가장 처음 위치에 특정 요소를 추가합니다.
      * @param e 큐의 처음 위치에 추가할 특정 요소

@@ -1,6 +1,4 @@
-package DataStructure;
-
-import java.util.EmptyStackException;
+package DataStructure.List;
 
 public class Stack<E> extends ArrayList<E> {
 

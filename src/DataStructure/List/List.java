@@ -1,6 +1,10 @@
-package InterFace;
+package DataStructure.List;
 
-public interface List<E> {
+import DataStructure.Collection;
+
+public interface List<E> extends Collection<E> {
+
+    // *** Collection method ***
     /**
      * 리스트의 크기를 반환합니다.
      *
@@ -76,6 +80,7 @@ public interface List<E> {
      */
     void clear();
 
+    // *** List method ***
     /**
      * 리스트의 특정 위치에 있는 요소를 가져옵니다.
      *

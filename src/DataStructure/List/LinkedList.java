@@ -1,6 +1,6 @@
-package DataStructure;
+package DataStructure.List;
 
-import InterFace.List;
+import DataStructure.Queue.Deque;
 
 import java.util.NoSuchElementException;
 

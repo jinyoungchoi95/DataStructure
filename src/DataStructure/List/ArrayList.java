@@ -1,6 +1,6 @@
-package DataStructure;
+package DataStructure.List;
 
-import InterFace.List;
+import DataStructure.List.List;
 
 public class ArrayList<E> implements List<E> {
 
