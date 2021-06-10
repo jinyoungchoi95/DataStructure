@@ -19,8 +19,8 @@ Studying the direct implementation of the data structure in Java
 - [LinkedList](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/List/LinkedList.java) : [blog posting](https://jinyoungchoi95.tistory.com/10)
 - [Stack](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/List/Stack.java) : [blog posting](https://jinyoungchoi95.tistory.com/24)
 
-### [Queue](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/Queue/Queue.java) Interface
+### Queue Interface
 
-- Queue : [blog posting](https://jinyoungchoi95.tistory.com/27)
+- [Queue](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/Queue/Queue.java) : [blog posting](https://jinyoungchoi95.tistory.com/27)
 
 - [Deque](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/Queue/Deque.java) : [blog posting](https://jinyoungchoi95.tistory.com/28)
