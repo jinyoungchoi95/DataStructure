@@ -5,7 +5,6 @@ Studying the direct implementation of the data structure in Java
 
 ## [Collection Framework](https://github.com/jinyoungchoi95/DataStructure/blob/master/src/DataStructure/Collection.java)
 
-
 ![1](https://user-images.githubusercontent.com/69106910/115505534-90146200-a2b4-11eb-946c-5fd6aac74a57.png)
 
 
